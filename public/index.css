@@ -1,0 +1,9 @@
+.incoming_message {
+  background-color: lightgrey;
+  width: 600px;
+  height: 400px;
+}
+
+.btn {
+  background-color: lightblue;
+}
