@@ -2,7 +2,7 @@ const socket = io();
 
 const incomingMessage = document.querySelector(".incoming_message");
 
-const handle = document.querySelector("#handle");
+const name = document.querySelector("#name");
 const message = document.querySelector("#message");
 const btn = document.querySelector(".btn");
 
@@ -10,11 +10,11 @@ btn.addEventListener("click", () => {
   console.log(socket);
   socket.emit("chat", {
     message: message.value,
-    handle: handle.value
+    name: name.value
   });
 });
 
 socket.on("chat", data => {
   incomingMessage.innerHTML +=
-    `<p><strong>` + data.handle + `</strong>:` + data.message + `</p>`;
+    `<p><strong>` + data.name + `</strong>:` + data.message + `</p>`;
 });
