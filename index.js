@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
+const authRouter = require("./auth/auth-router.js");
 
-app.use(express.static("public"));
+app.use("/login", authRouter);
 
-const server = app.listen(5000, () => {
-  console.log(`app is running on port 5000`);
+const server = app.listen(8000, () => {
+  console.log(`app is running on port 8000`);
 });
 
 const io = require("socket.io")(server);
