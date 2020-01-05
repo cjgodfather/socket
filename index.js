@@ -1,10 +1,16 @@
 const express = require("express");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+dotenv.config({ path: "./config/config.env" });
+connectDB();
 const app = express();
 const authRouter = require("./auth/auth-router.js");
 
 app.use("/login", authRouter);
 
-const server = app.listen(8000, () => {
+const PORT = process.env.PORT || 8000;
+
+const server = app.listen(PORT, () => {
   console.log(`app is running on port 8000`);
 });
 
@@ -18,4 +24,9 @@ io.on("connection", socket => {
   socket.on("disconnect", () => {
     console.log(`socket is disconnected`);
   });
+});
+
+process.on("unhandledRejection", (err, promise) => {
+  console.log(`Error:${err.message}`);
+  server.close(() => process.exit(1));
 });
