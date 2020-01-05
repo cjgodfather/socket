@@ -6,12 +6,13 @@ connectDB();
 const app = express();
 const authRouter = require("./auth/auth-router.js");
 
-app.use("/login", authRouter);
-
 const PORT = process.env.PORT || 8000;
 
+app.use(express.json());
+app.use("/api/auth", authRouter);
+
 const server = app.listen(PORT, () => {
-  console.log(`app is running on port 8000`);
+  console.log(`app is running on port ${PORT}`);
 });
 
 const io = require("socket.io")(server);
