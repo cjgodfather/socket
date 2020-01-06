@@ -3,12 +3,13 @@ const mongoose = require("mongoose");
 const ChatSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, "add a chat name"],
     default: "chat"
   },
   participants: {
-    type: [],
-    required: true,
+    type: [mongoose.Schema.ObjectId],
+    ref: "User",
+    required: [true, "add chat participant"],
     unique: false
   }
 });

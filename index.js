@@ -6,12 +6,14 @@ connectDB();
 const app = express();
 const authRouter = require("./auth/auth-router.js");
 const messageRouter = require("./message/message-router.js");
+const chatRouter = require("./chat/chat-routers");
 
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/message", messageRouter);
+app.use("/api/chat", chatRouter);
 
 const server = app.listen(PORT, () => {
   console.log(`app is running on port ${PORT}`);
