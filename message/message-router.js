@@ -9,9 +9,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const newMessage = req.body;
-  Message.create(newMessage).then(msg =>
-    res.status(200).json(`${msg.message} sent successfully`)
-  );
+  Message.create(newMessage).then(msg => console.log(msg));
 });
 
 module.exports = router;
