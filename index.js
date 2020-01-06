@@ -5,11 +5,13 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 const app = express();
 const authRouter = require("./auth/auth-router.js");
+const messageRouter = require("./message/message-router.js");
 
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use("/api/auth", authRouter);
+app.use("/api/message", messageRouter);
 
 const server = app.listen(PORT, () => {
   console.log(`app is running on port ${PORT}`);
