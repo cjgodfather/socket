@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Chat = require("../models/Chat");
 
 router.get("/", (req, res) => {
-  res.json(`this is chat`);
+  Chat.find().then(c => res.status(200).json(c));
 });
 
 router.post("/", (req, res) => {

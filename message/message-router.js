@@ -7,9 +7,20 @@ router.get("/", (req, res) => {
     .then(messages => res.status(200).json(messages));
 });
 
+router.get("/:chatId", (req, res) => {
+  const chatId = req.params.chatId;
+  console.log(chatId);
+  Message.find({ chatId })
+    .then(m => res.status(200).json(m))
+    .catch(err => console.log(err));
+});
+
 router.post("/", (req, res) => {
   const newMessage = req.body;
-  Message.create(newMessage).then(msg => console.log(msg));
+
+  Message.create(newMessage)
+    .then(msg => console.log(msg))
+    .catch(err => console.log(err.message));
 });
 
 module.exports = router;

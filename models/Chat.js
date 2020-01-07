@@ -4,7 +4,8 @@ const ChatSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "add a chat name"],
-    default: "chat"
+    default: "chat",
+    unique: true
   },
   participants: {
     type: [mongoose.Schema.ObjectId],
