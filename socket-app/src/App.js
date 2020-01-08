@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
 import Login from "./auth/Login";
+import Register from "./auth/Register";
 import Chat from "./chat/chat";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
             <Link to="/login">Login</Link>
           </li>
           <li>
+            <Link to="/register">Register</Link>
+          </li>
+          <li>
             <Link to="/chat">Chat</Link>
           </li>
         </ul>
@@ -25,6 +29,9 @@ function App() {
       <Switch>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
         <Route path="/chat">
           <Chat />
