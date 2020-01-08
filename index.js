@@ -15,6 +15,10 @@ app.use("/api/auth", authRouter);
 app.use("/api/message", messageRouter);
 app.use("/api/chat", chatRouter);
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "welcome to socket app " });
+});
+
 const server = app.listen(PORT, () => {
   console.log(`app is running on port ${PORT}`);
 });
