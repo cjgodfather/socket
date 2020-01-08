@@ -4,7 +4,6 @@ const Register = props => {
   const [user, setUser] = useState({
     username: "",
     password: "",
-    password_again: "",
     email: ""
   });
 
@@ -12,8 +11,12 @@ const Register = props => {
   const inputChangeHandler = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+  const formSubmitHandler = e => {
+    e.preventDefault();
+    console.log("submit");
+  };
   return (
-    <form>
+    <form onSubmit={formSubmitHandler}>
       <div>
         <label>Username:</label>
         <input
@@ -29,15 +32,6 @@ const Register = props => {
           type="password"
           name="password"
           value={user.password}
-          onChange={inputChangeHandler}
-        />
-      </div>
-      <div>
-        <label>Password again:</label>
-        <input
-          type="password"
-          name="password_again"
-          value={user.password_again}
           onChange={inputChangeHandler}
         />
       </div>
