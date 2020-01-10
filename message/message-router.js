@@ -23,4 +23,9 @@ router.post("/", (req, res) => {
     .catch(err => console.log(err.message));
 });
 
+router.delete("/:msgId", (req, res) => {
+  const msgId = req.params.msgId;
+  Message.remove({ msgId }).then(m => res.status(200).json(m));
+});
+
 module.exports = router;
