@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
-dotenv.config({ path: "./.env" });
+dotenv.config();
 connectDB();
 const app = express();
 const authRouter = require("./auth/auth-router.js");
@@ -16,7 +16,7 @@ app.use("/api/message", messageRouter);
 app.use("/api/chat", chatRouter);
 
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "welcome to socket app " });
+  res.status(200).json({ message: process.env.MESSAGE || "deployed" });
 });
 
 const server = app.listen(PORT, () => {
