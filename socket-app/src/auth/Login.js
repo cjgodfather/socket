@@ -4,7 +4,7 @@ import { loginUser } from "../action/actions";
 
 const Login = props => {
   const [user, setUser] = useState({
-    username: "",
+    email: "",
     password: ""
   });
 
@@ -21,12 +21,12 @@ const Login = props => {
   return (
     <form onSubmit={submitHandler}>
       <div>
-        <label className="mr-sm-2">Username:</label>
+        <label className="mr-sm-2">Email:</label>
         <input
-          type="text"
-          name="username"
-          placeholder="username"
-          value={user.username}
+          type="email"
+          name="email"
+          placeholder="email"
+          value={user.email}
           onChange={changeHandler}
         />
       </div>

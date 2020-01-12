@@ -22,7 +22,7 @@ router.post("/login", (req, res) => {
     .select("+password")
     .then(user => {
       if (bcrypt.compare(user.password, password)) {
-        res.status(200).json({ message: "successfully login" });
+        res.status(200).json({ message: "successfully login", user });
       }
     });
 });
