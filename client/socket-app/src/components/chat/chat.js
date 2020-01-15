@@ -18,7 +18,6 @@ function Chat() {
   };
 
   useEffect(() => {
-    console.log(socket);
     socket.on("chat", data => {
       setInMsg([...inMsg, data]);
     });
