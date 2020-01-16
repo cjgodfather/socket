@@ -1,10 +1,3 @@
-# socket-react app
-
-## Tech Stack
-
-### Front end
-
-react
 
 ### Back end
 
