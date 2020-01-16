@@ -1,10 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useLocation
+} from "react-router-dom";
 
 import "./App.css";
-import Login from "./auth/Login";
-import Register from "./auth/Register";
-import Chat from "./chat/chat";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Chat from "./components/chat/chat";
+import MainPage from "./components/main";
 
 function App() {
   return (
@@ -29,6 +36,9 @@ function App() {
       <Switch>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/:username">
+          <MainPage />
         </Route>
         <Route path="/register">
           <Register />
