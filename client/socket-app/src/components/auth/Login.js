@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import { loginUser } from "../action/actions";
+import { loginUser } from "../../action/actions";
 
 const Login = props => {
+  const history = useHistory();
+  console.log(history);
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -14,7 +17,8 @@ const Login = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    props.loginUser(user);
+    // props.loginUser(user);
+    history.push("/try");
   };
 
   console.log(user);
