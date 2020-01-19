@@ -34,16 +34,16 @@ function App() {
       </nav>
 
       <Switch>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login />
         </Route>
-        <Route path="/:username">
-          <MainPage />
-        </Route>
-        <Route path="/register">
+        <Route exact path="/register">
           <Register />
         </Route>
-        <Route path="/chat">
+        <Route exact path="/:username">
+          <MainPage />
+        </Route>
+        <Route exact path="/chat">
           <Chat />
         </Route>
       </Switch>
