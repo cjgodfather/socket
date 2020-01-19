@@ -27,9 +27,6 @@ function App() {
           <li>
             <Link to="/register">Register</Link>
           </li>
-          <li>
-            <Link to="/chat">Chat</Link>
-          </li>
         </ul>
       </nav>
 
@@ -43,7 +40,7 @@ function App() {
         <Route exact path="/:username">
           <MainPage />
         </Route>
-        <Route exact path="/chat">
+        <Route exact path="/:username/chat">
           <Chat />
         </Route>
       </Switch>
