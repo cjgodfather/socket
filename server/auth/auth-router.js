@@ -35,4 +35,21 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/search", async (req, res) => {
+  const { name } = req.body;
+
+  try {
+    const result = await User.findOne({ name }).exec();
+    if (result === null) {
+      res.status(500).json({ message: "user not exist" });
+    } else {
+      res.status(200).json(result);
+    }
+
+    console.log(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
